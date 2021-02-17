@@ -2,7 +2,7 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-# WEb scrapping
+# WEb scrapping Prueba de ver si se actualiza
 options = webdriver.ChromeOptions()
 options.add_argument("user-data-dir=C:\\Users\\peterquinn\\AppData\\Local\\Google\\Chrome\\User Data\\Default")
 browser = webdriver.Chrome(".venv\Lib\site-packages\selenium\webdriver\chrome\chromedriver.exe", chrome_options=options)
