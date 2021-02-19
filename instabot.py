@@ -8,7 +8,7 @@ session.login()
 
 my_followers = session.grab_followers(username="j_newroom", amount="full", live_match=True, store_locally=True)
 print(len(my_followers))
-send2db("")
+db_functions.send2db(my_followers)
 sleep(600)
 
 # Settings

@@ -1,8 +1,19 @@
 import mysql.connector
+import datetime
 
 # Nombre base datos "3744065_logpersonal"
+def fecha_hoy():
+    hoy = datetime.datetime.now()
+    año = hoy.year
+    mes = hoy.month
+    dia = hoy.day
 
-def send2db(sql):
+    fecha = hoy.replace(año, mes, dia)
+    fecha = hoy.strftime("%Y/%m/%d")
+    print(fecha)
+    return(fecha)
+
+def send2db(valor):
   mydb = mysql.connector.connect(
     host="192.168.1.100",
     user='peterquinn',
@@ -12,11 +23,13 @@ def send2db(sql):
 
   mycursor = mydb.cursor()
 
-
-  val = ("2021/02/19", 67.5)
+  sql = "INSERT INTO logdiario(fecha, nfollowers) VALUES(%s,%s)"
+  val = (fecha_hoy(), valor)
   mycursor.execute(sql, val)
 
   mydb.commit()
 
   print(mycursor.rowcount, "Record insertado.")
-return()
+  return()
+
+fecha_hoy()
